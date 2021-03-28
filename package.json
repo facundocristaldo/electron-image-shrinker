@@ -1,0 +1,16 @@
+{
+  "name": "image-shrinker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "nodemon --exec electron ."
+  },
+  "author": "Facundo Cristaldo",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^12.0.2",
+    "nodemon": "^2.0.7"
+  }
+}
