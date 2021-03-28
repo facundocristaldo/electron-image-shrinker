@@ -1,12 +1,8 @@
 const { app, BrowserWindow, Menu, globalShortcut } = require("electron")
-
-process.env.NODE_ENV = "development"
-
-const isDev = process.env.NODE_ENV == "development"
-const isMac = process.platform === "darwin"
+const { menu } = require('./src/MenuTemplate')
+const { isMac, isDev } = require('./src/Constants')
 
 let mainWindow;
-
 
 function createMainWindow() {
   mainWindow = new BrowserWindow({
@@ -20,6 +16,7 @@ function createMainWindow() {
   mainWindow.loadURL(`file://${__dirname}/app/index.html`)
 }
 
+
 app.on('ready', () => {
   createMainWindow();
   const mainMenu = Menu.buildFromTemplate(menu)
@@ -32,19 +29,6 @@ app.on('ready', () => {
   mainWindow.on('ready', () => mainWindow = null)
 })
 
-const menu = [
-  ...(isMac && [{ role: "appMenu" }]),
-  {
-    label: "File",
-    submenu: [
-      {
-        label: "Quit",
-        accelerator: "CmdOrCtrl+W",
-        click: () => app.quit()
-      }
-    ]
-  }
-]
 
 app.on('window-all-closed', () => {
   if (!isMac) {
