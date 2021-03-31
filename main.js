@@ -16,7 +16,7 @@ function createMainWindow() {
   mainWindow = new BrowserWindow({
     title: "Image Shrinker",
     width: 500,
-    height: 750,
+    height: 770,
     icon: `./assets/icons/Icon_256x256.png`,
     resizable: isDev,
     backgroundColor: "white",
